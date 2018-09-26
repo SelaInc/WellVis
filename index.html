@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Well 1</h1>
+<div id="funnel"></div>
+
+<script src='//d3js.org/d3.v4.min.js'></script>
+<script src="js/d3-funnel.js"></script>
+<script>
+    const data = [
+        { label: 'Water', value: 93 },
+        { label: 'Oil', value: 1239},
+        { label: 'Gas', value: 10 }
+    ];
+
+    const options = {
+        block: {
+            dynamicHeight: true,
+            minHeight: 15,
+            fill: {
+                scale: d3.schemeCategory10
+            }
+
+            },
+        chart: {
+            curve: {
+                enabled: true
+            },
+            height: 500,
+            width: 400,
+            animate: 1000
+        }
+    };
+
+    const chart = new D3Funnel('#funnel');
+
+    chart.draw(data, options);
+</script>
+
+</body>
+</html>
